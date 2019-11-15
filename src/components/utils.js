@@ -37,17 +37,6 @@ export function formatCreditCardNumber(value) {
   return nextValue.trim();
 }
 
-export function formatCVC(value, prevValue, allValues = {}) {
-  const clearValue = clearNumber(value);
-  let maxLength = 4;
-
-  if (allValues.number) {
-    const issuer = Payment.fns.cardType(allValues.number);
-    maxLength = issuer === 'amex' ? 4 : 3;
-  }
-
-  return clearValue.slice(0, maxLength);
-}
 
 export function formatExpirationDate(value) {
   const clearValue = clearNumber(value);
